@@ -1,29 +1,24 @@
 package main;
 
 import controlador.CookieDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import controlador.Logger;
 
 import java.io.*;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 
 public class Main {
 
     public static void main(String[] args) {
 
         CookieDriver prueba = new CookieDriver();
+
+        Logger log = new Logger();
+        String partida = log.leerLog();
+
         prueba.web();
         prueba.aceptaCookies();
-        prueba.cargaPartida();
+
+        prueba.cargaPartida(partida);
         prueba.cerrarDriver();
     }
 
