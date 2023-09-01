@@ -24,10 +24,11 @@ public class Logger {
             return line;
         } catch (FileNotFoundException e){
             System.out.println(e);
+            return "";
         } catch (IOException e){
             System.out.println(e);
+            return "";
         }
-        return "";
 
     }
 }
