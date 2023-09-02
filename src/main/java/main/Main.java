@@ -3,23 +3,17 @@ package main;
 import controlador.CookieDriver;
 import controlador.Logger;
 
+import javax.swing.*;
 
-public class Main extends javax.swing.JFrame {
+
+public class Main {
 
     public static void main(String[] args) {
+
         CookieDriver prueba = new CookieDriver();
 
-        Logger log = new Logger();
-        String partida = log.leerLog(); //cargar desde logFile
+        Ventana ventana = new Ventana(prueba);
 
-        prueba.web();
-        prueba.ventanaGrande();
-        prueba.aceptaCookies();
-
-        prueba.cargaPartida(partida);
-        prueba.clickBigCookie();
-
-        prueba.cerrarDriver();
 
     }
 

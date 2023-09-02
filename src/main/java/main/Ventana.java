@@ -7,45 +7,53 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana {
+public class Ventana extends JFrame{
     private JPanel Base;
     private JPanel PanelTop;
     private JPanel PanelBotom;
     private JButton startButton;
     private JButton stopButton;
+    private JButton clickCookie;
+    private JButton stopClick;
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Ventana");
-        frame.setContentPane(new Ventana().Base);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+    public Ventana(CookieDriver driver) {
+        setContentPane(Base);
+        setTitle("CookieCliker");
+        setSize(300, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                driver.web();
+                driver.ventanaGrande();
+                driver.aceptaCookies();
+                driver.cargaPartida(new Logger().leerLog());
+            }
+        });
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                driver.cerrarDriver();
+            }
+        });
+        clickCookie.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while(true){
+                            driver.clickBigCookie();
+                        }
+                    }
+                });
+                thread.start();
+            }
+        });
+
     }
 
-    public Ventana() {
-    startButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            CookieDriver prueba = new CookieDriver();
 
-            Logger log = new Logger();
-            String partida = log.leerLog(); //cargar desde logFile
 
-            prueba.web();
-            prueba.ventanaGrande();
-            prueba.aceptaCookies();
-
-            prueba.cargaPartida(partida);
-            prueba.clickBigCookie();
-
-            prueba.cerrarDriver();
-        }
-    });
-    stopButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-    });
-}
 }
