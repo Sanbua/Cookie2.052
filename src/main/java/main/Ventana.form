@@ -3,14 +3,15 @@
   <grid id="27dc6" binding="Base" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="528" height="419"/>
     </constraints>
     <properties>
       <preferredSize width="300" height="300"/>
+      <requestFocusEnabled value="false"/>
     </properties>
     <border type="none"/>
     <children>
-      <grid id="d9932" binding="PanelTop" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d9932" binding="PanelTop" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -25,25 +26,26 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <actionCommand value="Start"/>
+              <alignmentX value="0.0"/>
+              <hideActionText value="false"/>
+              <horizontalTextPosition value="11"/>
               <text value="Start"/>
+              <toolTipText value=""/>
             </properties>
           </component>
-          <hspacer id="db3bf">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
           <component id="371b3" class="javax.swing.JButton" binding="stopButton" default-binding="true">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <enabled value="false"/>
               <text value="Stop"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="3184f" binding="PanelBotom" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="3184f" binding="PanelBotom" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -55,12 +57,37 @@
         <children>
           <component id="cbd62" class="javax.swing.JCheckBox" binding="megaClickOnOff">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="85" height="179"/>
+              </grid>
             </constraints>
             <properties>
               <text value="MEGA Click"/>
             </properties>
           </component>
+          <scrollpane id="8571a" binding="scrollPrintsArea">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="11" height="179"/>
+              </grid>
+            </constraints>
+            <properties/>
+            <border type="line" title="Cositos">
+              <color color="-15877246"/>
+            </border>
+            <children>
+              <component id="cfca" class="javax.swing.JTextArea" binding="printsArea">
+                <constraints/>
+                <properties>
+                  <editable value="false"/>
+                  <maximumSize width="-1" height="-1"/>
+                  <minimumSize width="-1" height="-1"/>
+                  <preferredSize width="-1" height="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
         </children>
       </grid>
     </children>

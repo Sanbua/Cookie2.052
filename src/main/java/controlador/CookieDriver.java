@@ -38,9 +38,13 @@ public class CookieDriver {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[3]/div[2]/div[1]/div[2]/div[2]/button[1]/p")));
     }
 
-    public void aceptaCookies(){
+    public void aceptaCookiesPrim(){
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
-        driver.manage().deleteAllCookies();
+    }
+
+    public void aceptaCookiesSec(){
+        driver.findElement(By.xpath("/html/body/div[3]/div/ins/img[3]")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div/a[1]")).click();
     }
 
     public void cargaPartida(String partida){
@@ -59,19 +63,25 @@ public class CookieDriver {
             System.err.println("ERRORRR");
             System.err.println(e.initCause(e));
         }
+
+    }
+
+    public String clickGoldenCookie(){
         try {
             //click goldenCookie
             driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[5]/div")).click();
-            System.out.println("Coookie! " + LocalDateTime.now().format(DateTimeFormatter.ISO_TIME));
-
+            String goldenCookie = "Coookie! " + LocalDateTime.now().format(DateTimeFormatter.ISO_TIME);
+            System.out.println(goldenCookie);
+            return goldenCookie + "\n";
         } catch (Exception e) {
-
+            return null;
         }
     }
 
+
     public void cerrarDriver(){
+        driver.manage().deleteAllCookies();
         driver.close();
     }
-
 
 }

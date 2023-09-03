@@ -1,10 +1,6 @@
 package main;
 
 import controlador.CookieDriver;
-import controlador.Logger;
-
-import javax.swing.*;
-
 
 public class Main {
 
