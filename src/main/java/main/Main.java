@@ -10,10 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CookieDriver prueba = new CookieDriver();
-
-        Ventana ventana = new Ventana(prueba);
-
+        Ventana ventana = new Ventana(new CookieDriver());
 
     }
 

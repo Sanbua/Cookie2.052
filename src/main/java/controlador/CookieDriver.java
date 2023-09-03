@@ -18,6 +18,10 @@ public class CookieDriver {
     private WebDriver driver;
 
     public CookieDriver(){
+
+    }
+
+    public void initDriver(){
         driver = new EdgeDriver();
     }
 

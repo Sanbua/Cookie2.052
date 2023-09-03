@@ -13,8 +13,7 @@ public class Ventana extends JFrame{
     private JPanel PanelBotom;
     private JButton startButton;
     private JButton stopButton;
-    private JButton clickCookie;
-    private JButton stopClick;
+    private JCheckBox megaClickOnOff;
 
     public Ventana(CookieDriver driver) {
         setContentPane(Base);
@@ -22,9 +21,12 @@ public class Ventana extends JFrame{
         setSize(300, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                driver.initDriver();
                 driver.web();
                 driver.ventanaGrande();
                 driver.aceptaCookies();
@@ -37,13 +39,14 @@ public class Ventana extends JFrame{
                 driver.cerrarDriver();
             }
         });
-        clickCookie.addActionListener(new ActionListener() {
+
+        megaClickOnOff.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        while(true){
+                        while(megaClickOnOff.isSelected()){
                             driver.clickBigCookie();
                         }
                     }
@@ -51,7 +54,6 @@ public class Ventana extends JFrame{
                 thread.start();
             }
         });
-
     }
 
 
