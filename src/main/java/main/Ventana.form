@@ -62,6 +62,7 @@
               </grid>
             </constraints>
             <properties>
+              <enabled value="false"/>
               <text value="MEGA Click"/>
             </properties>
           </component>

@@ -37,6 +37,7 @@ public class Ventana extends JFrame{
                 driver.cargaPartida(new Logger().leerLog());
                 driver.aceptaCookiesSec();
                 stopButton.setEnabled(true);
+                megaClickOnOff.setEnabled(true);
                 startButton.setEnabled(false);
             }
         });
@@ -45,6 +46,7 @@ public class Ventana extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 driver.cerrarDriver();
                 startButton.setEnabled(true);
+                megaClickOnOff.setEnabled(false);
                 stopButton.setEnabled(false);
             }
         });
@@ -58,7 +60,6 @@ public class Ventana extends JFrame{
                         while(megaClickOnOff.isSelected()){
                             driver.clickBigCookie();
                             printsArea.append(driver.clickGoldenCookie());
-
                         }
                     }
                 });

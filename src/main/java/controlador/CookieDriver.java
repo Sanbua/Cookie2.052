@@ -1,9 +1,6 @@
 package controlador;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,7 +10,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class CookieDriver {
+public class CookieDriver{
 
     private WebDriver driver;
 
@@ -33,7 +30,7 @@ public class CookieDriver {
         driver.get("https://orteil.dashnet.org/cookieclicker/");
     }
 
-    public void wait5(){
+    public void wait5(){ //no se pa k es esto. ja ja salu2
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[3]/div[2]/div[1]/div[2]/div[2]/button[1]/p")));
     }
@@ -43,8 +40,14 @@ public class CookieDriver {
     }
 
     public void aceptaCookiesSec(){
-        driver.findElement(By.xpath("/html/body/div[3]/div/ins/img[3]")).click();
+        try {
+            ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[3]/div/ins/img[3]"));
+            driver.findElement(By.xpath("/html/body/div[3]/div/ins/img[3]")).click();
+        } catch (NoSuchElementException e){
+            System.out.println("No carga la x");
+        }
         driver.findElement(By.xpath("/html/body/div[1]/div/a[1]")).click();
+
     }
 
     public void cargaPartida(String partida){
@@ -69,7 +72,8 @@ public class CookieDriver {
     public String clickGoldenCookie(){
         try {
             //click goldenCookie
-            driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[5]/div")).click();
+            //driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[5]/div")).click();
+            driver.findElement(By.xpath("//*[@id=\"shimmers\"]/div")).click();
             String goldenCookie = "Coookie! " + LocalDateTime.now().format(DateTimeFormatter.ISO_TIME);
             System.out.println(goldenCookie);
             return goldenCookie + "\n";
